@@ -17,13 +17,13 @@ namespace RobotAttempt
 		public LocationService( HttpClient client) // IConfiguration config, ILogger<LocationService> logger)
 		{
 			//_logger = logger;
-			//_logger.LogCritical(new EventId(), null, "Created Service");
-			_client = client;
+            //_logger.LogCritical(new EventId(), null, "Created Service");
+            _client = client;
 			client.DefaultRequestHeaders.Add("User-Agent", "C# App");
-			//var section = config.GetSection("HttpCustomerHeaders:User-agent");
-			//_logger.LogCritical(section.Key + ":" + section.Value);
-			//_client.DefaultRequestHeaders.Add(section.Key, section.Value);
-		}
+            //var section = config.GetSection("HttpCustomerHeaders:User-agent");
+            //_logger.LogCritical(section.Key + ":" + section.Value);
+            //_client.DefaultRequestHeaders.Add(section.Key, section.Value);
+        }
 
 		public async Task<string> GetNearestLocationOfWater(Location location) // CancellationToken token) 
 		{

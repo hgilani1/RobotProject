@@ -41,12 +41,12 @@ namespace RobotAttempt.Controllers
         [HttpPost(Name = "RobotSpotted")]
         public async Task<string> Post(Location location) // CancellationToken token)
         {
-            _logger.Log(LogLevel.Information, new EventId(), null, "Finding the nearest water source to" + location.Name);
+            //_logger.Log(LogLevel.Information, new EventId(), null, "Finding the nearest water source to" + location.Name);
             string WaterNearby = await _service.GetNearestLocationOfWater(location);
             JsonSerializer.Serialize(WaterNearby);
             WaterData[] ClosestWater = JsonSerializer.Deserialize<WaterData[]>(WaterNearby);
             //return ClosestWater[0].display_name;
-               return $"The nearest source of water to {location.Name} is {ClosestWater[0].display_name}";
+               return $"{location.Name}'s closest water source is {ClosestWater[0].display_name}";
         }
     }
 }
